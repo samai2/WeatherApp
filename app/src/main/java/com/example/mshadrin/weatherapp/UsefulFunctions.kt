@@ -10,4 +10,6 @@ fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
 }
 
 val ViewGroup.childViews: List<View>
- get() = (0 until childCount).map { getChildAt(it) }
+    get() = (0 until childCount).map { getChildAt(it) }
+
+operator fun ViewGroup.get(position: Int): View = getChildAt(position)

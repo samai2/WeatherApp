@@ -19,14 +19,15 @@ class ForecastDataMapper {
         return list.mapIndexed { i, forecast -> convertForecastRestItem(forecast) }
     }
 
-    private fun convertForecastRestItem(item : Forecast) : ModelForecast{
-        return  ModelForecast(convertDate(item.dt), item.weather.first().description, item.temp.max.toInt(), item.temp.min.toInt())
+    private fun convertForecastRestItem(item: Forecast): ModelForecast {
+        return ModelForecast(convertDate(item.dt), item.weather.first().description, item.temp.max.toInt(), item.temp.min.toInt(), generateIconUrl(item.weather[0].icon))
     }
+
     private fun convertDate(date: Long): String {
         return getDateInstance(DEFAULT, Locale.getDefault()).format(date * 1000L)
     }
 
-
+    private fun generateIconUrl(iconCode: String) = "http://openweathermap.org/img/w/$iconCode.png"
 
 
 }
