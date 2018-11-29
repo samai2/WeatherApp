@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         doAsync {
              val result = RequestForecastCommand("94043").execute()
-          //  var responce = ForecastRequest("94043").execute()
+
             uiThread {
                 forecastList.adapter = ForecastListAdapter(result,
                          object : ForecastListAdapter.OnItemClickListener{

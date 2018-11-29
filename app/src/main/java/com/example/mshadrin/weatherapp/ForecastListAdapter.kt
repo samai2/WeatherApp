@@ -38,9 +38,10 @@ class ForecastListAdapter(val weekForecast: ForecastList, val itemClick: Forecas
         fun bindForecast(forecast: Forecast){
             with(forecast){
                 Picasso.get().load(iconUrl).into(iconView)
-                dateVies.text = description
+                dateVies.text = date
+                descriptionView.text = description
                 maxTemperatureView.text="$high"
-                minTemperatureView.text="$low"
+                minTemperatureView.text="min $low"
                 itemView.setOnClickListener { itemClick(this) }
             }
         }
